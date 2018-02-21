@@ -2,24 +2,25 @@
   <head>
 </head>
 <body>
-<div><?php
-  //whether ip is from share internet
-  if (!empty($_SERVER['HTTP_CLIENT_IP']))  
+<div>
+<?php
+//whether ip is from share internet
+if (!empty($_SERVER['HTTP_CLIENT_IP']))
   {    
     $ip_address = $_SERVER['HTTP_CLIENT_IP'];  
   }
   //whether ip is from proxy
-  elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))  
+elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
   {    
-    $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];  
+    $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
   }
   //whether ip is from remote address
-  else  
+else  
   {   
     $ip_address = $_SERVER['REMOTE_ADDR']; 
   }
-  echo $ip_address ;
-  ?>
+echo $ip_address ;
+?>
   </div><div>
 <p id="demo"></p>
 <script language='javascript'>
