@@ -1,0 +1,30 @@
+﻿---
+- hosts: test
+  become: true
+  tasks:
+     - name: disabling SELinux
+       lineinfile:
+         dest: /etc/selinux/config
+         regexp: '^SELINUX='
+         line: 'SELINUX=disabled'
+
+     - name: upgrade all packages
+       yum:
+         name: '*'
+         state: latest
+
+     - name: install the latest version of DOCKER
+       yum:
+         name: docker
+         state: latest
+
+     - name: enable docker autorun
+       command: systemctl enable docker
+
+     - name: editing a HOSTS file
+       lineinfile:
+         dest: /etc/hosts
+         line: '54.77.96.50 gitlab.haufe-umantis.com'
+
+     - name: restart system
+       command: shutdown -r
