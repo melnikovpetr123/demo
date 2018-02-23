@@ -96,7 +96,7 @@ element "$local_adr" "${arr[@]}"
 if [ $? -eq 0 ] ;  then
           echo -n
           else
-          echo "$protocol pid:$pid addr:$local_adr $exefile |$cmdline"
+          echo "$protocol pid:$pid addr: $local_adr $exefile"
           arr+=("$local_adr")
 fi
     done
